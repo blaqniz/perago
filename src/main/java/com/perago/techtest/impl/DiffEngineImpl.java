@@ -1,6 +1,7 @@
 package com.perago.techtest.impl;
 
 import com.perago.techtest.*;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 
 import java.io.Serializable;
@@ -90,13 +91,14 @@ public class DiffEngineImpl implements DiffEngine {
                 final String fieldName = field.getName();
                 final boolean skipSerialVersionUID = skipSerialVersionUID(fields, fieldName);
                 if (skipSerialVersionUID) continue;
-                if (diff.getDiffMessage().equals("")) {
+                final String diffMessage = diff.getDiffMessage();
+                if (StringUtils.isEmpty(diffMessage)) {
                     createObject(diff, modified);
                 }
 
                 setModifiedChildObject(modified, diff);
 
-                diff.setDiffMessage(diff.getDiffMessage().concat("\n" + CREATE + fieldName + " as \"" + objectValue + "\""));
+                diff.setDiffMessage(diffMessage.concat("\n" + CREATE + fieldName + " as \"" + objectValue + "\""));
 
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
