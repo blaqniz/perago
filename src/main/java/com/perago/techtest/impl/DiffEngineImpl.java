@@ -11,8 +11,9 @@ public class DiffEngineImpl implements DiffEngine {
     private static final String CREATE = "Create: ";
     private static final String UPDATE = "Update: ";
     private static final String DELETE = "Delete: ";
+    private static final String FRIEND = "friend";
     final Diff diff = new Diff();
-    String diffMessage = "";
+    private String diffMessage = "";
 
     public <T extends Serializable> T apply(T original, Diff<?> diff) throws DiffException {
         return null;
@@ -21,12 +22,11 @@ public class DiffEngineImpl implements DiffEngine {
     public <T extends Serializable> Diff<T> calculate(T original, T modified) throws DiffException {
         if (!EqualsBuilder.reflectionEquals(original, modified)) {
             Field[] fields;
-
             if (original == null && modified != null) {
                 fields = modified.getClass().getDeclaredFields();
                 getDiffForNullAndModifiedObjects(modified, fields, diff);
             } else if (original != null && modified == null) {
-                diff.setDiffMessage(diff.getDiffMessage().concat("\n" + DELETE + original.getClass().getSimpleName()));
+                deleteObject(diff, original);
                 return diff;
             } else {
                 final Field[] originalFields = original.getClass().getDeclaredFields();
@@ -44,23 +44,16 @@ public class DiffEngineImpl implements DiffEngine {
                             Object modifiedField = field.get(modified);
 
                             if (originalField != modifiedField) {
-                                /*final Person modifiedPerson = (Person) modifiedField;
-                                if (modifiedPerson.getClass().getSimpleName().equals(Person.class.getSimpleName())) {
-                                    diffMessage += "\n" + CREATE + ((Person) modifiedField).getFirstName() + " as \"" + modifiedPerson.getFirstName() + "\"";
-                                    diffMessage += "\n" + CREATE + fieldName + " as \"" + modifiedPerson.getSurname() + "\"";
-                                    diffMessage += "\n" + CREATE + fieldName + " as \"" + modifiedPerson.getFriend() + "\"";
-                                    diffMessage += "\n" + CREATE + fieldName + " as \"" + modifiedPerson.getPet() + "\"";
-                                    diffMessage += "\n" + CREATE + fieldName + " as \"" + modifiedPerson.getFirstName() + "\"";
-                                }*/
-                                if (fieldName == "friend") {
-                                    diffMessage = diff.getDiffMessage();
+                                if (fieldName == FRIEND) {
+                                    diffMessage += "\n" + UPDATE + fieldName;
+                                } else {
+                                    updateObject(diff, fieldName, originalField, modifiedField);
                                 }
-                                diffMessage = "\n" + UPDATE + fieldName + " from \"" + originalField + "\" to \"" + modifiedField + "\"";
                                 if (!diff.getDiffMessage().contains(diffMessage)) {
                                     buildDiffDisplay(diff, diffMessage);
                                 }
 
-                                if (field.getType().getSimpleName().equals(Person.class.getSimpleName())) {
+                                if (modifiedField instanceof Person) {
                                     final Person originalFriend = originalField == null ? null : ((Person) originalField).getFriend();
                                     final Person modifiedFriend = modifiedField == null ? null : ((Person) modifiedField).getFriend();
                                     if (originalField == null && modifiedField != null) {
@@ -69,7 +62,7 @@ public class DiffEngineImpl implements DiffEngine {
                                     } else {
                                         calculate(originalFriend, modifiedFriend);
                                     }
-                                } if (field.getType().getSimpleName().equals(Pet.class.getSimpleName())) {
+                                } else if (modifiedField instanceof Pet) {
                                     if (originalField == null && modifiedField == null) return diff;
                                     calculate(original, modified);
                                 }
@@ -79,7 +72,6 @@ public class DiffEngineImpl implements DiffEngine {
                         }
                     }
                 }
-                System.out.println(diff.getDiffMessage());
                 return diff;
             }
             return diff;
@@ -96,7 +88,7 @@ public class DiffEngineImpl implements DiffEngine {
                 final boolean skipSerialVersionUID = skipSerialVersionUID(fields, fieldName);
                 if (skipSerialVersionUID) continue;
                 if (diff.getDiffMessage().equals("")) {
-                    diff.setDiffMessage(diff.getDiffMessage().concat("\n" + CREATE + modified.getClass().getSimpleName()));
+                    createObject(diff, modified);
                 }
 
                 diff.setDiffMessage(diff.getDiffMessage().concat("\n" + CREATE + fieldName + " as \""
@@ -115,6 +107,18 @@ public class DiffEngineImpl implements DiffEngine {
 
     private void buildDiffDisplay(final Diff diff, final String message) {
         diff.setDiffMessage(diff.getDiffMessage().concat(message));
+    }
+
+    private void createObject(Diff diff, Object modified) {
+        diff.setDiffMessage(diff.getDiffMessage().concat("\n" + CREATE + modified.getClass().getSimpleName()));
+    }
+
+    private void updateObject(Diff diff, String fieldName, Object originalField, Object modifiedField) {
+        diff.setDiffMessage("\n" + UPDATE + fieldName + " from \"" + originalField + "\" to \"" + modifiedField + "\"");
+    }
+
+    private void deleteObject(Diff diff, Object original) {
+        diff.setDiffMessage(diff.getDiffMessage().concat("\n" + DELETE + original.getClass().getSimpleName()));
     }
 
     public static void main(String[] args) throws DiffException {
@@ -140,15 +144,15 @@ public class DiffEngineImpl implements DiffEngine {
         fred.setPet(null);
         fred.setNickNames(null);
 
-        Person john = new Person();
+        /*Person john = new Person();
         john.setFirstName("Fred");
-        john.setSurname("Smith");
-        john.setFriend(johnFriend);
+        john.setSurname("Jones");
+        john.setFriend(null);
         john.setPet(null);
-        john.setNickNames(null);
+        john.setNickNames(null);*/
 
 //        Person fred = null;
-//        Person john = null;
+        Person john = null;
 
         DiffEngine diffEngine = new DiffEngineImpl();
         final Diff<Person> diff = diffEngine.calculate(fred, john);
