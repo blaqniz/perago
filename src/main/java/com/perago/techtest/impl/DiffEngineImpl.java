@@ -14,6 +14,7 @@ public class DiffEngineImpl implements DiffEngine {
     private static final String FRIEND = "friend";
     final Diff diff = new Diff();
     private String diffMessage = "";
+    private int counter = 1;
 
     public <T extends Serializable> T apply(T original, Diff<?> diff) throws DiffException {
         return null;
@@ -46,6 +47,8 @@ public class DiffEngineImpl implements DiffEngine {
                             if (originalField != modifiedField) {
                                 if (fieldName == FRIEND) {
                                     diffMessage += "\n" + UPDATE + fieldName;
+                                    diff.setDiffMessage(diff.getDiffMessage() + "\n" + UPDATE + fieldName);
+                                    calculate(null, (T) modifiedField);
                                 } else {
                                     updateObject(diff, fieldName, originalField, modifiedField);
                                 }
@@ -91,12 +94,20 @@ public class DiffEngineImpl implements DiffEngine {
                     createObject(diff, modified);
                 }
 
-                diff.setDiffMessage(diff.getDiffMessage().concat("\n" + CREATE + fieldName + " as \""
-                                + objectValue + "\""));
+                setModifiedChildObject(modified, diff);
+
+                diff.setDiffMessage(diff.getDiffMessage().concat("\n" + CREATE + fieldName + " as \"" + objectValue + "\""));
 
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             }
+        }
+    }
+
+    private <T extends Serializable> void setModifiedChildObject(T modified, Diff<T> diff) {
+        if (diff.getDiffMessage().contains(UPDATE) && counter > 0) {
+            diff.setDiffMessage(diff.getDiffMessage().concat("\n" + CREATE + modified.getClass().getSimpleName()));
+            counter--;
         }
     }
 
@@ -144,15 +155,15 @@ public class DiffEngineImpl implements DiffEngine {
         fred.setPet(null);
         fred.setNickNames(null);
 
-        /*Person john = new Person();
+        Person john = new Person();
         john.setFirstName("Fred");
-        john.setSurname("Jones");
-        john.setFriend(null);
+        john.setSurname("Smith");
+        john.setFriend(johnFriend);
         john.setPet(null);
-        john.setNickNames(null);*/
+        john.setNickNames(null);
 
 //        Person fred = null;
-        Person john = null;
+//        Person john = null;
 
         DiffEngine diffEngine = new DiffEngineImpl();
         final Diff<Person> diff = diffEngine.calculate(fred, john);
