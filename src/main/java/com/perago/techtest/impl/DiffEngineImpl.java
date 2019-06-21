@@ -23,9 +23,8 @@ public class DiffEngineImpl implements DiffEngine {
 
     public <T extends Serializable> Diff<T> calculate(T original, T modified) throws DiffException {
         if (!EqualsBuilder.reflectionEquals(original, modified)) {
-            Field[] fields;
             if (original == null && modified != null) {
-                fields = modified.getClass().getDeclaredFields();
+                final Field[] fields = modified.getClass().getDeclaredFields();
                 getDiffForNullAndModifiedObjects(modified, fields, diff);
             } else if (original != null && modified == null) {
                 deleteObject(diff, original);
@@ -98,7 +97,7 @@ public class DiffEngineImpl implements DiffEngine {
 
                 setModifiedChildObject(modified, diff);
 
-                diff.setDiffMessage(diffMessage.concat("\n" + CREATE + fieldName + " as \"" + objectValue + "\""));
+                diff.setDiffMessage(diff.getDiffMessage().concat("\n" + CREATE + fieldName + " as \"" + objectValue + "\""));
 
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
@@ -127,7 +126,9 @@ public class DiffEngineImpl implements DiffEngine {
     }
 
     private void updateObject(Diff diff, String fieldName, Object originalField, Object modifiedField) {
-        diff.setDiffMessage("\n" + UPDATE + fieldName + " from \"" + originalField + "\" to \"" + modifiedField + "\"");
+        if (!diff.getDiffMessage().contains("\n" + UPDATE + fieldName + " from \"" + originalField + "\" to \"" + modifiedField + "\"")) {
+            diff.setDiffMessage(diff.getDiffMessage().concat("\n" + UPDATE + fieldName + " from \"" + originalField + "\" to \"" + modifiedField + "\""));
+        }
     }
 
     private void deleteObject(Diff diff, Object original) {
