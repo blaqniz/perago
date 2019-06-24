@@ -48,7 +48,11 @@ public class DiffEngineImpl implements DiffEngine {
                                 if (fieldName == FRIEND) {
                                     diffMessage += "\n" + UPDATE + fieldName;
                                     diff.setDiffMessage(diff.getDiffMessage() + "\n" + UPDATE + fieldName);
-                                    calculate(null, (T) modifiedField);
+                                    if (originalField == null) {
+                                        return calculate(null, (T) modifiedField);
+                                    } else {
+                                        return calculate((T) originalField, null);
+                                    }
                                 } else {
                                     updateObject(diff, fieldName, originalField, modifiedField);
                                 }
@@ -82,7 +86,7 @@ public class DiffEngineImpl implements DiffEngine {
         return null;
     }
 
-    private <T extends Serializable> void getDiffForNullAndModifiedObjects(T modified, Field[] fields, Diff<T> diff) {
+    private <T extends Serializable> void getDiffForNullAndModifiedObjects(T modified, Field[] fields, Diff<T> diff) throws DiffException {
         for (Field field : fields) {
             field.setAccessible(true);
             try {
@@ -97,7 +101,11 @@ public class DiffEngineImpl implements DiffEngine {
 
                 setModifiedChildObject(modified, diff);
 
-                diff.setDiffMessage(diff.getDiffMessage().concat("\n" + CREATE + fieldName + " as \"" + objectValue + "\""));
+                if (objectValue instanceof Person) {
+                    calculate(null, (T) objectValue);
+                } else {
+                    diff.setDiffMessage(diff.getDiffMessage().concat("\n" + CREATE + fieldName + " as \"" + objectValue + "\""));
+                }
 
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
@@ -138,16 +146,16 @@ public class DiffEngineImpl implements DiffEngine {
     public static void main(String[] args) throws DiffException {
 
         Person johnFriendFriend = new Person();
-        johnFriendFriend.setFirstName("JohnFriendFriend");
-        johnFriendFriend.setSurname("Jones");
+        johnFriendFriend.setFirstName("JohnFriendFriendName");
+        johnFriendFriend.setSurname("JohnFriendFriendSurname");
         johnFriendFriend.setFriend(null);
         johnFriendFriend.setPet(null);
         johnFriendFriend.setNickNames(null);
 
         Person johnFriend = new Person();
-        johnFriend.setFirstName("JohnFriend");
-        johnFriend.setSurname("Jones");
-        johnFriend.setFriend(null);
+        johnFriend.setFirstName("JohnFriendName");
+        johnFriend.setSurname("JohnFriendSurname");
+        johnFriend.setFriend(johnFriendFriend);
         johnFriend.setPet(null);
         johnFriend.setNickNames(null);
 
