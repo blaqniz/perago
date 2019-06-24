@@ -142,42 +142,4 @@ public class DiffEngineImpl implements DiffEngine {
     private void deleteObject(Diff diff, Object original) {
         diff.setDiffMessage(diff.getDiffMessage().concat("\n" + DELETE + original.getClass().getSimpleName()));
     }
-
-    public static void main(String[] args) throws DiffException {
-
-        Person johnFriendFriend = new Person();
-        johnFriendFriend.setFirstName("JohnFriendFriendName");
-        johnFriendFriend.setSurname("JohnFriendFriendSurname");
-        johnFriendFriend.setFriend(null);
-        johnFriendFriend.setPet(null);
-        johnFriendFriend.setNickNames(null);
-
-        Person johnFriend = new Person();
-        johnFriend.setFirstName("JohnFriendName");
-        johnFriend.setSurname("JohnFriendSurname");
-        johnFriend.setFriend(johnFriendFriend);
-        johnFriend.setPet(null);
-        johnFriend.setNickNames(null);
-
-        Person fred = new Person();
-        fred.setFirstName("Fred");
-        fred.setSurname("Smith");
-        fred.setFriend(null);
-        fred.setPet(null);
-        fred.setNickNames(null);
-
-        Person john = new Person();
-        john.setFirstName("Fred");
-        john.setSurname("Smith");
-        john.setFriend(johnFriend);
-        john.setPet(null);
-        john.setNickNames(null);
-
-//        Person fred = null;
-//        Person john = null;
-
-        DiffEngine diffEngine = new DiffEngineImpl();
-        final Diff<Person> diff = diffEngine.calculate(fred, john);
-        System.out.println(diff);
-    }
 }

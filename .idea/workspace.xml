@@ -19,11 +19,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/perago/techtest/impl/DiffEngineImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="532">
-              <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
+            <state relative-caret-position="137">
+              <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/perago/techtest/impl/DiffEngineImplTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1394">
+              <caret line="82" column="35" lean-forward="true" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,6 +90,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -110,6 +123,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/perago/techtest/Diff.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/perago/techtest/impl/DiffEngineImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/perago/techtest/impl/DiffEngineImplTest.java" />
       </list>
     </option>
   </component>
@@ -121,16 +135,17 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="240" />
-    <option name="y" value="128" />
-    <option name="width" value="1440" />
-    <option name="height" value="773" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -173,11 +188,49 @@
               <item name="techtest" type="462c0819:PsiDirectoryNode" />
               <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="perago" type="b2602c69:ProjectViewProjectNode" />
+              <item name="perago" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="perago" type="b2602c69:ProjectViewProjectNode" />
+              <item name="perago" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="perago" type="b2602c69:ProjectViewProjectNode" />
+              <item name="perago" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="techtest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="perago" type="b2602c69:ProjectViewProjectNode" />
+              <item name="perago" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="techtest" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="perago" type="b2602c69:ProjectViewProjectNode" />
+              <item name="perago" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="techtest" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -185,6 +238,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -192,6 +247,12 @@
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.perago.techtest.impl" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.perago.techtest" />
     </key>
@@ -208,7 +269,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.DiffEngineImpl">
+  <component name="RunManager" selected="JUnit.DiffEngineImplTest.testDeleteObject">
     <configuration name="DiffEngineImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.perago.techtest.impl.DiffEngineImpl" />
       <module name="technical-test" />
@@ -222,8 +283,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.perago.techtest.Test" />
+    <configuration name="DiffEngineImplTest.testCreateNewObject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="technical-test" />
       <extension name="coverage">
         <pattern>
@@ -231,14 +291,69 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.perago.techtest.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.perago.techtest.impl.DiffEngineImplTest" />
+      <option name="METHOD_NAME" value="testCreateNewObject" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiffEngineImplTest.testDeleteObject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="technical-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.perago.techtest.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.perago.techtest.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.perago.techtest.impl.DiffEngineImplTest" />
+      <option name="METHOD_NAME" value="testDeleteObject" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiffEngineImplTest.testModifyObjectFields" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="technical-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.perago.techtest.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.perago.techtest.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.perago.techtest.impl.DiffEngineImplTest" />
+      <option name="METHOD_NAME" value="testModifyObjectFields" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiffEngineImplTest.testUpdateChildObjects" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="technical-test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.perago.techtest.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.perago.techtest.impl" />
+      <option name="MAIN_CLASS_NAME" value="com.perago.techtest.impl.DiffEngineImplTest" />
+      <option name="METHOD_NAME" value="testUpdateChildObjects" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DiffEngineImplTest.testDeleteObject" />
+        <item itemvalue="JUnit.DiffEngineImplTest.testUpdateChildObjects" />
+        <item itemvalue="JUnit.DiffEngineImplTest.testModifyObjectFields" />
+        <item itemvalue="JUnit.DiffEngineImplTest.testCreateNewObject" />
         <item itemvalue="Application.DiffEngineImpl" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -263,11 +378,46 @@
       <workItem from="1561114619561" duration="11000" />
       <workItem from="1561115580744" duration="5211000" />
       <workItem from="1561316574786" duration="145000" />
+      <workItem from="1561359813134" duration="1289000" />
+      <workItem from="1561367036549" duration="78000" />
+      <workItem from="1561367144128" duration="1619000" />
     </task>
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="DiffEngineImplTest_testCreateNewObject - 2019.06.24 at 10h 53m 46s.xml">
+      <configuration name="DiffEngineImplTest.testCreateNewObject" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiffEngineImplTest_testCreateNewObject - 2019.06.24 at 11h 09m 05s.xml">
+      <configuration name="DiffEngineImplTest.testCreateNewObject" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiffEngineImplTest_testModifyObjectFields - 2019.06.24 at 11h 14m 05s.xml">
+      <configuration name="DiffEngineImplTest.testModifyObjectFields" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiffEngineImplTest_testModifyObjectFields - 2019.06.24 at 11h 16m 05s.xml">
+      <configuration name="DiffEngineImplTest.testModifyObjectFields" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiffEngineImplTest_testModifyObjectFields - 2019.06.24 at 11h 16m 08s.xml">
+      <configuration name="DiffEngineImplTest.testModifyObjectFields" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiffEngineImplTest_testUpdateChildObjects - 2019.06.24 at 11h 39m 51s.xml">
+      <configuration name="DiffEngineImplTest.testUpdateChildObjects" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiffEngineImplTest_testUpdateChildObjects - 2019.06.24 at 11h 39m 54s.xml">
+      <configuration name="DiffEngineImplTest.testUpdateChildObjects" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiffEngineImplTest_testDeleteObject - 2019.06.24 at 11h 40m 57s.xml">
+      <configuration name="DiffEngineImplTest.testDeleteObject" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiffEngineImplTest_testDeleteObject - 2019.06.24 at 11h 42m 14s.xml">
+      <configuration name="DiffEngineImplTest.testDeleteObject" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DiffEngineImplTest_testDeleteObject - 2019.06.24 at 11h 42m 19s.xml">
+      <configuration name="DiffEngineImplTest.testDeleteObject" configurationId="JUnit" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61557000" />
+    <option name="totallyTimeSpent" value="64543000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -282,14 +432,14 @@
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" order="2" weight="0.32555556" />
+      <window_info anchor="bottom" id="Messages" order="2" weight="0.32503662" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Version Control" order="4" />
-      <window_info anchor="bottom" id="Terminal" order="5" weight="0.3288889" />
+      <window_info anchor="bottom" id="Terminal" order="5" weight="0.32796487" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.32777777" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.4288889" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.32650074" />
+      <window_info active="true" anchor="bottom" id="Debug" order="9" visible="true" weight="0.4275256" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" />
@@ -344,16 +494,10 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/perago/techtest/impl/DiffEngineImpl.java</url>
-          <line>98</line>
+          <url>file://$PROJECT_DIR$/src/test/java/com/perago/techtest/impl/DiffEngineImplTest.java</url>
+          <line>81</line>
           <properties />
-          <option name="timeStamp" value="167" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/perago/techtest/impl/DiffEngineImpl.java</url>
-          <line>97</line>
-          <properties />
-          <option name="timeStamp" value="170" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -489,16 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/perago/techtest/impl/DiffEngineImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="532">
-          <caret line="112" column="9" selection-start-line="112" selection-start-column="9" selection-end-line="112" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -528,6 +662,26 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/perago/techtest/impl/DiffEngineImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="13" column="32" selection-start-line="13" selection-start-column="32" selection-end-line="13" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/perago/techtest/impl/DiffEngineImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="82" column="35" lean-forward="true" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
